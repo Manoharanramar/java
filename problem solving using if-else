@@ -1,0 +1,11 @@
+package q10923;
+public class CheckSum100{
+	public static void checkSum(int first,int second){
+		if(first==100||second==100||first+second==100){
+			System.out.println("true");
+		}
+		else{
+			System.out.println("false");
+		}
+	}
+}
