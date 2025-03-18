@@ -1,0 +1,32 @@
+package q14744;
+import java.util.HashMap;
+import java.util.Map;
+import java.util.Scanner;
+public class CTJ14744 {
+    private static final Map<Character, Integer> romanToValue = new HashMap<>() {{
+        put('I', 1); put('V', 5); put('X', 10); put('L', 50);
+        put('C', 100); put('D', 500); put('M', 1000);
+    }};
+
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+        String s = scanner.nextLine().trim();
+        scanner.close();
+        // Validate and compute the value
+        if (s.matches("^(M{0,3})(CM|CD|D?C{0,3})(XC|XL|L?X{0,3})(IX|IV|V?I{0,3})$")) {
+            int total = 0, prevValue = 0;
+            for (int i = s.length() - 1; i >= 0; i--) {
+                int value = romanToValue.getOrDefault(s.charAt(i), -1);
+                if (value == -1) {
+                    System.out.println("INVALID");
+                    return;
+                    }
+                total += value < prevValue ? -value : value;
+                prevValue = value;
+            }
+            System.out.println(total);
+        } else {
+            System.out.println("INVALID");
+        }
+    }
+}
