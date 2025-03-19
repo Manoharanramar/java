@@ -1,0 +1,56 @@
+import java.util.Scanner;
+		if(isEmpty()){
+			System.out.println("No elements to display");
+		}else{
+			for(int i=top;i>=0;i--){
+				System.out.println(stack[i]);
+			}
+	}
+	}
+	public int stackSize(){
+		return top+1;
+	}
+	public boolean isEmpty(){
+		return top==-1;
+	}
+	public boolean isFull(){
+		return top == capacity-1;
+	}
+	public static void main(String[] args){
+		Scanner a=new Scanner(System.in);
+		System.out.println("Stack Implementation using fixed size array");
+		System.out.print("Enter the size of the stack: ");
+		int capacity = a.nextInt();
+		ClassFixedArrayStack stackOject = new ClassFixedArrayStack(capacity);
+		System.out.println("Enter 1 to push\nEnter 2 to pop\nEnter 3 to display stack\nEnter 4 to display the peek\nEnter 5 to print size of stack\nEnter 6 to exit");
+		while(true){
+			System.out.print("Enter your option: ");
+		int choice = a.nextInt();
+			switch (choice){
+				case 1:
+					System.out.print("Scan element to push: ");
+					int item = a.nextInt();
+					stackOject.push(item);
+					break;
+				case 2:
+					stackOject.pop();
+					break;
+				case 3:
+					stackOject.display();
+					break;
+				case 4:
+					stackOject.peek();
+					break;
+				case 5:
+					System.out.println("Size of Stack is: " + stackOject.stackSize());
+					break;
+				case 6:
+					a.close();
+					return;
+	default:
+					System.out.println("Enter the right option");
+					break;
+			}
+		}
+	}
+}
