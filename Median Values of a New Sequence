@@ -1,0 +1,30 @@
+package q27891;
+import java.util.PriorityQueue;
+import java.util.Scanner;
+public class CTJ27891 {
+	public static void main(String[] args){
+		Scanner scanner = new Scanner(System.in);
+		int A=scanner.nextInt();
+		PriorityQueue<Integer> low = new PriorityQueue<>((a,b) -> b - a);
+		PriorityQueue<Integer> high = new PriorityQueue<>();
+		for(int i=0;i<A;i++){
+			int no = scanner.nextInt();
+			if(low.isEmpty() || no<= low.peek()) {
+				low.add(no);
+			}else{
+				high.add(no);
+			}
+			if(low.size() > high.size() + 1) {
+				high.add(low.poll());
+			}else if(high.size() > low.size()) {
+				low.add(high.poll());
+			}
+			if(low.size() > high.size()) {
+				System.out.println(low.peek());
+			}else{
+				System.out.println((low.peek() + high.peek()) / 2);
+			}
+		}
+		scanner.close();
+	}
+}
