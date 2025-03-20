@@ -1,0 +1,33 @@
+package q23042;
+import java.util.Scanner;
+class person{
+	protected String name;
+	public void inputName() {
+		Scanner scanner = new Scanner (System.in);
+		System.out.print("Enter name: ");
+		name = scanner.nextLine();
+	}
+	public void displayName(){
+		System.out.println("Name: " +name);
+	}
+}
+class Citizen extends person{
+	private int age;
+	public void inputAge() {
+		Scanner scanner = new Scanner (System.in);
+		System.out.print("Enter age: ");
+		age = scanner.nextInt();
+	}
+	public void displayAge(){
+		System.out.println("Age: " + age);
+	}
+}
+public class MainPerson {
+    public static void main(String[] args) {
+        Citizen citizen = new Citizen();
+        citizen.inputName();
+        citizen.displayName();
+        citizen.inputAge();
+        citizen.displayAge();
+    }
+}
