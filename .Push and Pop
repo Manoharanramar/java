@@ -1,0 +1,40 @@
+package q14747;
+import java.util.Stack;
+import java.util.Scanner;
+public class CTJ14747{
+	public static void main(String[] args){
+		Scanner scanner = new Scanner(System.in);
+		int x=scanner.nextInt();
+		int [] push = new int[x];
+		for(int i=0;i<x;i++){
+			push[i]=scanner.nextInt();
+		}
+		int[] pop = new int[x];
+		for(int i=0;i<x;i++){
+			pop[i] = scanner.nextInt();
+		}
+		scanner.close();
+		if(isPossible(push,pop)){
+			System.out.println(1);
+		}else{
+			System.out.println(0);
+		}
+	}
+	private static boolean isPossible(int[] push,int[] pop){
+		Stack<Integer>stack = new Stack<>();
+		int pushIndex=0;
+		int popIndex=0;
+		while(popIndex <pop.length){
+			while(pushIndex<push.length && (stack.isEmpty() || stack.peek() != pop[popIndex])) {
+				stack.push(push[pushIndex++]);
+			}
+			if(stack.peek() == pop[popIndex]) {
+				stack.pop();
+				popIndex++;
+			}else{
+				return false;
+			}
+		}
+		return true;
+	}
+}
