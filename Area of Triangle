@@ -1,0 +1,62 @@
+import java.util.*;
+    public RightAngledTriangle_Area_Class(double base, double altitude) {
+        this.base = base;
+        this.altitude = altitude;
+    }
+
+    // Method to calculate and display the area of the right-angled triangle
+    @Override
+    void get_Area() {
+        double area = 0.5 * base * altitude;
+        System.out.printf("area: %.2f\n", area);
+	}
+
+
+	
+}
+
+class EqulilateralTriangle_Area_Class extends Triangle_Area_Class         {
+	// write your code here...
+	  private double side;
+
+    // Constructor to initialize side
+    public EqulilateralTriangle_Area_Class(double side) {
+        this.side = side;
+    }
+
+    // Method to calculate and display the area of the equilateral triangle
+    @Override
+    void get_Area() {
+        double area = (Math.sqrt(3) / 4) * (side * side);
+        System.out.printf("area: %.2f\n", area);
+	}
+
+
+	
+}
+
+public class AreaOfTriangle
+{	public static void main (String[]args)
+	{	Scanner Sc = new Scanner (System.in);
+		System.out.print("Press 1 for right-angled triangle\nPress 2 for equilateral triangle\nChoice: ");
+		int choice = Sc.nextInt ();
+		double x, y;
+		Triangle_Area_Class TA = null;
+		switch (choice)
+		{	case 1:
+				System.out.print ("base: ");
+				x = Sc.nextDouble ();
+				System.out.print ("altitude: ");
+				y = Sc.nextDouble ();
+				TA = new RightAngledTriangle_Area_Class(x,y);
+				TA.get_Area ();
+				break;
+			case 2:
+				System.out.print ("side: ");
+				x = Sc.nextDouble ();
+				TA = new EqulilateralTriangle_Area_Class(x);
+				TA.get_Area ();
+				break;
+		}
+	}
+}
