@@ -1,0 +1,21 @@
+package q23112;
+import java.util.Scanner;
+class Numberln{
+int num;
+void inputNum(){
+Scanner scanner=new Scanner(System.in);
+System.out.print("Enter number: ");
+num=scanner.nextInt();
+}
+}
+class SquareOut extends Numberln{
+void displaySquare(){
+System.out.print(num*num+"\n");}}
+
+public class MainFunction {
+    public static void main(String[] args) {
+    	SquareOut squareout = new SquareOut();
+        squareout.inputNum();
+        squareout.displaySquare();
+    }
+}
