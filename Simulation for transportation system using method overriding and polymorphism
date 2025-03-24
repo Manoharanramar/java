@@ -1,0 +1,30 @@
+package q22052;
+import java.util.Scanner;
+abstract class Vehicle {
+    // Abstract method start, to be implemented by subclasses
+    public abstract void start();
+}
+
+// Subclass Car
+class Car extends Vehicle {
+    @Override
+    public void start() {
+        System.out.println("Car: ignition key");
+    }
+}
+
+// Subclass Motorcycle
+class Motorcycle extends Vehicle {
+    @Override
+    public void start() {
+        System.out.println("Motorcycle: kickstarting");
+    }
+}
+
+// Subclass Truck
+class Truck extends Vehicle {
+    @Override
+    public void start() {
+        System.out.println("Truck: ignition button");
+    }
+}
