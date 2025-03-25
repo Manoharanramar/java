@@ -1,0 +1,36 @@
+import java.util.Scanner;
+
+// write your code here...
+interface Shape{
+	void getData();
+void display();
+
+	
+}
+
+class Circle implements Shape{
+	private double radius;
+	private final double PI = 3.14;
+	public void getData(){
+		Scanner scanner = new Scanner(System.in);
+		radius = scanner.nextDouble();
+	}
+	public void display(){
+		double area = PI * radius *radius;
+		System.out.printf("Area of Circle is %.1f\n" , area);
+	}
+}
+class Rectangle implements Shape{
+	private double length;
+	private double width;
+	public void getData() {
+		Scanner scanner = new Scanner(System.in);
+		length=scanner.nextDouble();
+		width=scanner.nextDouble();
+	}
+	public void display(){
+		double area =length*width;
+		System.out.printf("Area of Rectangle is %.1f\n", area);
+	}
+}
+
