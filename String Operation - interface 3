@@ -1,0 +1,36 @@
+package q28272;
+import java.util.Scanner;
+
+
+// write your code here
+interface TextManipulator {
+	String manipulateText(String inputText);
+}
+class ReverseText implements TextManipulator {
+	public String manipulateText(String inputText){
+		return new StringBuilder(inputText).reverse().toString();
+	}
+}
+class ReplaceVowels implements TextManipulator {
+	public String manipulateText(String inputText){
+		return inputText.replaceAll("[AEIOUaeiou]","*");
+	}
+}
+public class Main {
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+
+        // Example usage
+        TextManipulator reverseText = new ReverseText();
+        TextManipulator replaceVowels = new ReplaceVowels();
+
+        System.out.print("Enter a text: ");
+        String inputText = scanner.nextLine();
+
+        // Display reversed text
+        String reversedResult = reverseText.manipulateText(inputText);
+        System.out.println("Reversed Text: " + reversedResult);
+
+        // Display text with vowels replaced
+        String replaceVowelsResult = replaceVowels.manipulateText(inputText);
+        System.out.println("Text with Vowels Replaced: " + replaceVowelsResult);
