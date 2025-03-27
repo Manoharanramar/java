@@ -1,0 +1,36 @@
+package q28268;
+import java.util.Scanner;
+interface StringOperation{
+	String performOperation(String inputString);
+}
+class UppercaseOperation implements StringOperation{
+	public String performOperation(String inputString){
+		StringBuilder result = new StringBuilder();
+		for(int i=0;i<inputString.length();i++) {
+			if(i % 2==0){
+				result.append(Character.toUpperCase(inputString.charAt(i)));
+			}
+			else{
+				result.append(inputString.charAt(i));
+			}
+		}
+		return result.toString();
+	}
+}
+class LowercaseOperation implements StringOperation{
+	public String performOperation(String inputString) {
+		StringBuilder result = new StringBuilder();
+		for(int i=0;i<inputString.length();i++){
+			if(i%2==1){
+				result.append(Character.toLowerCase(inputString.charAt(i)));
+			}else{
+				result.append(inputString.charAt(i));
+			}
+		}
+		return result.toString();
+	}
+}
+
+public class Main {
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
