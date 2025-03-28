@@ -1,0 +1,36 @@
+/*
+import java.util.Scanner;
+
+//write your code here to create a custom exception class...
+class EmployeeException extends Exception{
+	public EmployeeException(String message){
+		super(message);
+	}
+}
+class Employee{
+	private String firstName;
+	private double salary;
+
+    // Parameterized constructor
+public Employee(String firstName,double salary){
+	this.firstName=firstName;
+	this.salary=salary;
+}
+
+
+    // Display method with exception handling
+    public void display() {
+        System.out.println("Name: " + firstName);
+        System.out.println("Salary: " + salary);
+
+        try {
+if(salary<2000){
+	throw new EmployeeException("Salary is below 2000");
+}
+
+
+        } catch (EmployeeException e) {
+			System.out.println("Exception: "+e.getMessage());
+
+
+    }
