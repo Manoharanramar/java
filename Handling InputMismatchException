@@ -1,0 +1,30 @@
+package q22100;
+// write your code here 
+import java.util.*;
+
+
+public class Main {
+    public static void main(String[] args) {
+    	// write your code for Scanner class 
+    	Scanner s=new Scanner(System.in);
+
+        try {
+            // write your code here 
+            int number=s.nextInt();
+System.out.println(number);
+
+            
+            
+        } catch (InputMismatchException e) {
+            // write your code here 
+            System.out.println("Error: Please enter a valid integer");
+            
+            
+        }
+		
+	}
+		    
+		    
+}
+
+
