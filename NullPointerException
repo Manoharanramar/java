@@ -1,0 +1,7 @@
+@Nullable String lookupElement(Document doc) {
+    Element element = doc.findElement(“span”);
+    if (element == null) {
+        return null;
+    }
+    return element.getValue();
+}
