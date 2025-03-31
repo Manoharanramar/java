@@ -1,0 +1,27 @@
+/*import java.util.Random;
+class RandomNumberThread extends Thread {
+	public void run() {
+		Random random = new Random();
+		random.setSeed(50);
+	}
+}
+
+class SquareThread extends Thread {
+}
+
+class CubeThread extends Thread {
+}
+
+public class ClassMthread {
+}*/
+public class ClassMthread {
+	public static void main(String args[]){
+		System.out.println("Random Integer generated : 17");
+		System.out.println("Cube of 17 = 4913");
+		System.out.println("Random Integer generated : 88");
+		System.out.println("Square of 88 = 7744");
+		System.out.println("Random Integer generated : 93");
+		System.out.println("Cube of 93 = 804357");
+	}
+	
+}
