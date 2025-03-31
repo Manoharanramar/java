@@ -1,0 +1,36 @@
+/*
+package q28377;
+import java.util.Scanner;
+class InvalidFilenameException extends Exception {
+  
+  // write the code..
+public InvalidFilenameException(String message){
+super(message);
+}
+
+   
+}
+
+public class FilenameValidator {
+    public static void main(String[] args) {
+     Scanner s=new Scanner(System.in);
+String inputFilename=s.nextLine();
+try{
+validateFilename(inputFilename);
+
+}catch(InvalidFilenameException e){
+System.out.println(e.getMessage());
+}finally{
+s.close();
+}
+    }
+private static final int MAX_LENGTH = 10;
+public static void validateFilename(String filename) throws InvalidFilenameException{
+if(filename.length() > MAX_LENGTH){
+throw new InvalidFilenameExcetion("Filename exceeds maximum length");
+}
+for(char c : filename.toCharArray()){
+if(!Character.isLetterOrDigit(c) && c!= '.'){
+throw new InvalidFilenameException("Filename contains disallowed characters");
+}
+}
