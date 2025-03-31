@@ -1,0 +1,36 @@
+/*import java.util.InputMismatchException;
+import java.util.Scanner;
+
+public class ExceptionHandlingExample {
+		// Write required scanner class and variables a, and b
+	public static void main(String[] args) {
+Scanner s=new Scanner(System.in);
+int a=0;
+int b=0;
+        try {
+        	// write your code here
+        	System.out.println("Enter the value of 'a': ");
+            a=s.nextInt();
+            System.out.println("Enter the value of 'b': ");
+            b=s.nextInt();
+int c=a/b;
+System.out.println("Result of a/b: "+c);
+        } catch (ArithmeticException e) {
+        	// write your code here
+        	System.out.println("Arithmetic Exception: / by Zero");
+        } catch (InputMismatchException e) {
+        	// write your code here
+        	System.out.println("Input Mismatch Exception: Please enter valid integer values.");
+        }finally{
+s.close();
+}
+
+    }
+
+    public static int divide(int a,int b) {
+    	// write your code here
+    	return a/b;
+    }
+}
+*/
+import java.util.InputMismatchException;
