@@ -1,0 +1,36 @@
+package q32312;
+import java.util.ArrayList;
+import java.util.HashSet;
+import java.util.List;
+import java.util.Scanner;
+import java.util.Set;
+import java.util.TreeSet;
+
+class PrimeThread extends Thread {
+  private final int lim;
+    private final Set<Integer> primes;
+
+    public PrimeThread(int lim, Set<Integer> primes) {
+        this.lim = lim;
+        this.primes = primes;
+	}
+
+    public void run() {
+        for (int i = 2; i < lim; i++) {
+            if (isPrime(i)) {
+                synchronized (primes) {
+                    primes.add(i);
+                }
+            }
+        }
+    }
+
+    private boolean isPrime(int num) {
+        if (num <= 1) return false;
+        for (int i = 2; i*i <= num; i++) {
+            if (num % i == 0) return false;
+        }
+        return true;
+	}
+
+}
