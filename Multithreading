@@ -1,0 +1,37 @@
+import java.util.Scanner;
+
+class Chef extends Thread {
+	private String name;
+	private int numOrders;
+	public Chef(String name, int numOrders){
+		this.name = name;
+		this.numOrders = numOrders;
+	}
+	public void run() {
+		for(int i=1;i<=numOrders;i++){
+			try{
+				int preperationTime = (int)(Math.random() * 100);
+				Thread.sleep(preperationTime);
+				System.out.println(name + " finished preparing order " + i);
+			} catch (InterruptedException e) {
+				Thread.currentThread().interrupt();
+			}
+		}
+	}
+}
+class Waiter extends Thread {
+
+	private String name;
+	private int numOrders;
+	public Waiter(String name, int numOrders) {
+		this.name = name;
+		this.numOrders = numOrders;
+	}
+	public void run() {
+		for(int i=1;i<=numOrders;i++) {
+			try{
+				int deliveryTime = (int)(Math.random() * 100);
+				Thread.sleep(deliveryTime);
+				System.out.println(name + " delivered order " + i);
+			} catch (InterruptedException e) {
+}
