@@ -1,0 +1,36 @@
+package q19684;
+import java.util.Scanner;
+
+class NumberPrinter implements Runnable {
+private final int m;
+private final int maxNumber;
+private static final Object lock=new Object();
+private static boolean isOddTurn=true;
+public NumberPrinter(int m,int maxNumber){
+this.m=m;
+this.maxNumber=maxNumber;
+}
+public void run(){
+for(int h=m;h<=maxNumber;h+=2){
+synchronized(lock){
+while((m==0&&!isOddTurn)||(m==1&&isOddTurn)){
+try{
+lock.wait();
+}catch(InterruptedException e){
+Thread.currentThread().interrupt();
+}
+}
+if(h>0||m==1){
+System.out.println(Thread.currentThread().getName() + ": " + h);
+}
+isOddTurn = !isOddTurn;
+lock.notifyAll();}}
+} 
+}
+public class EvenOddNumberPrinter {
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+
+        int maxNumber = 0;
+        boolean validInput = false;
+
