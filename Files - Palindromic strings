@@ -1,0 +1,37 @@
+package q18210;
+ import java.io.*;
+import java.util.*;
+
+public class Palindrome {
+
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+        System.out.print("file: ");
+        String fileName = scanner.nextLine();
+        scanner.close();
+
+        try {
+            countPalindromes(fileName);
+        } catch (FileNotFoundException e) {
+            System.out.println("File not found");
+        } catch (IOException e) {
+            System.out.println("An error occurred while reading the file");
+        }
+	}
+
+    public static void countPalindromes(String fileName) throws IOException {
+        File file = new File(fileName);
+        BufferedReader reader = new BufferedReader(new FileReader(file));
+
+        String line;
+        List<String> palindromes = new ArrayList<>();
+        int palindromeCount = 0;
+
+
+        while ((line = reader.readLine()) != null) {
+            if (!line.trim().isEmpty() && isPalindrome(line.trim())) {
+                palindromes.add(line.trim()); 
+                palindromeCount++;
+            }
+        }
+}
