@@ -1,0 +1,32 @@
+import java.io.*;
+public class NoteTakingApp {
+public static void main(String[] args){
+BufferedReader reader = new BufferedReader(new InputStreamReader(System.in));
+String userInput = "";
+String filename = "";
+try{
+userInput = reader.readLine();
+filename = reader.readLine();
+File file = new File(filename);
+try(BufferedWriter writer = new BufferedWriter(new FileWriter(file, true))){
+writer.write(userInput);
+writer.newLine();
+}catch(IOException e){
+System.err.println("An error occurred while writing to the file: " + e.getMessage());
+}
+try(BufferedReader fileReader = new BufferedReader(new FileReader(file))){
+String line;
+while((line = fileReader.readLine()) != null) {
+                    System.out.println(line);
+                }
+            } catch (FileNotFoundException e) {
+                System.out.println("File not found. Here is your input text:");
+                System.out.println(userInput);
+            } catch (IOException e) {
+                System.err.println("An error occurred while reading the file: " + e.getMessage());
+			}
+        } catch (IOException e) {
+            System.err.println("An error occurred while reading input: " + e.getMessage());
+}
+}
+}
