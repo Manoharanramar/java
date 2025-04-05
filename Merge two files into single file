@@ -1,0 +1,53 @@
+package q29044;
+
+        try {
+           
+            BufferedWriter writer = new BufferedWriter(new FileWriter(outputFileName));
+
+            
+            readAndWriteFile(inputFile1, writer);
+            
+           
+            readAndWriteFile(inputFile2, writer);
+
+            
+            writer.close();
+            
+       
+            
+           
+            displayMergedFile(outputFileName);
+
+        } catch (IOException e) {
+            System.err.println("An error occurred: " + e.getMessage());
+        } finally {
+            scanner.close();
+        }
+	}
+ private static void readAndWriteFile(String inputFileName, BufferedWriter writer) throws IOException {
+        File inputFile = new File(inputFileName);
+        if (!inputFile.exists() || inputFile.length() == 0) {
+            writer.write("Empty_" + inputFileName);
+            writer.newLine();
+        } else {
+            BufferedReader reader = new BufferedReader(new FileReader(inputFile));
+            String line;
+            while ((line = reader.readLine()) != null) {
+                writer.write(line);
+                writer.newLine();
+            }
+            reader.close();
+        }
+    }
+
+    private static void displayMergedFile(String outputFileName) throws IOException {
+        BufferedReader mergedReader = new BufferedReader(new FileReader(outputFileName));
+        String line;
+       
+        while ((line = mergedReader.readLine()) != null) {
+            System.out.println(line);
+        }
+        mergedReader.close();
+    }
+
+}
