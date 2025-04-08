@@ -1,0 +1,36 @@
+import java.util.Scanner;
+abstract class EmployeeDetails {
+	
+	// write your code here
+private String name;
+	private int empid;
+	public EmployeeDetails(String name,int empid){
+		this.name=name;
+		this.empid=empid;
+	}
+	public void displayCommonDetails(){
+		System.out.println("Name = " + name);
+		System.out.println("emp_ID = " + empid);
+	}
+public abstract void displayConfidentialDetails();
+}
+class HR extends EmployeeDetails {
+	
+	// write your code here
+	
+private int salary;
+	private String perfomance;
+	public HR(String name,int empid,int salary,String perfomance){
+		super(name,empid);
+		this.salary=salary;
+		this.perfomance=perfomance;
+	}
+	public void displayConfidentialDetails(){
+		System.out.println("salary = " + salary);
+		System.out.println("performance = " + perfomance);
+
+}
+public static void main(String[] args){
+		Scanner scanner=new Scanner(System.in);
+		String name=scanner.nextLine();
+		int empid=scanner.nextInt();
