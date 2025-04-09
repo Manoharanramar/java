@@ -1,0 +1,32 @@
+import java.util.ArrayList;
+import java.util.Collections;
+import java.util.List;
+import java.util.Scanner;
+
+public class TaskOrganizer {
+
+	// write your code here..
+	
+ public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+        ArrayList<String> tasks = new ArrayList<>();
+        System.out.println("Enter task names (type 'done' to finish input):");
+        while (true) {
+            System.out.print("Task name: ");
+            String taskName = scanner.nextLine();
+            if (taskName.equalsIgnoreCase("done")) {
+                break;
+			}
+          
+            tasks.add(taskName);
+		}
+        Collections.sort(tasks);
+        System.out.println("Organized List of Tasks:");
+        for (String task : tasks) {
+            System.out.println(task);
+		}
+        scanner.close();
+    }
+}
+
+
