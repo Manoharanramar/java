@@ -1,0 +1,16 @@
+package sortapp.subsortapp;
+import sortapp.SortInterface;
+import java.util.ArrayList;
+import java.util.Collections;
+public class SortImpl implements SortInterface{
+	private ArrayList<Integer> num;
+	public SortImpl(ArrayList<Integer> num){
+		this.num=num;
+	}
+	public void sorting(){
+		System.out.println("linear sort is used");
+		Collections.sort(num);
+		System.out.println("Sorted Numbers:"+num);
+	}
+}
+
