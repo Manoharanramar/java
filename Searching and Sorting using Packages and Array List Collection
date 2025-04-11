@@ -1,0 +1,86 @@
+//SortInterface.java
+package sortapp;
+public interface SortInterface{
+	void sorting();
+}
+//SortImpl.java
+package sortapp.subsortapp;
+import sortapp.SortInterface;
+import java.util.ArrayList;
+import java.util.Collections;
+public class SortImpl implements SortInterface{
+	private ArrayList<Integer> num;
+	public SortImpl(ArrayList<Integer> num){
+		this.num=num;
+	}
+	public void sorting(){
+		System.out.println("linear sort is used");
+		Collections.sort(num);
+		System.out.println("Sorted Numbers:"+num);
+	}
+}
+//SearchInterface.java
+package searchingapp;
+
+public interface SearchInterface {
+    void search();
+}
+//SearchImpl.java
+package searchingimpl;
+import searchingapp.SearchInterface;
+import java.util.ArrayList;
+public class SearchImpl implements SearchInterface{
+	private ArrayList<Integer> num;
+	private int target;
+	public SearchImpl(ArrayList<Integer> num,int target){
+		this.num=num;
+		this.target=target;
+	}
+	public void search(){
+		if(num.contains(target)){
+			System.out.println("Element "+target+" found");
+		}
+		else{
+			System.out.println("Element "+target+" not found");
+		}
+	}
+}
+//ExecutePackage.java
+import java.util.ArrayList;
+import java.util.Scanner;
+import sortapp.subsortapp.SortImpl;
+import searchingimpl.SearchImpl;
+public class ExecutePackage{
+	public static void main(String[] args){
+		Scanner scanner=new Scanner(System.in);
+		System.out.print("Enter the number of elements:");
+		int size=scanner.nextInt();
+		ArrayList<Integer> num=new ArrayList<>();
+		for(int i=0;i<size;i++){
+			System.out.print("Enter element "+(i+1)+":");
+			num.add(scanner.nextInt());
+		}
+		SortImpl sorter=new SortImpl(num);
+		sorter.sorting();
+		System.out.print("Enter the element to search:");
+		int elementToSearch=scanner.nextInt();
+		SearchImpl searcher=new SearchImpl(num,elementToSearch);
+		searcher.search();
+		scanner.close();
+	}
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
