@@ -1,0 +1,28 @@
+package q16490;
+import java.util.*;
+
+public class SetExample {
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+        Set<String> names = new HashSet<>();
+System.out.println("Enter three names to add to the set:");
+		for(int i=0;i<3;i++){
+			String n=scanner.nextLine();
+			names.add(n);
+		}
+		System.out.println("Set contains: "+names);
+		System.out.println("Enter a name to remove from the set:");
+		String nameToRemove=scanner.nextLine();
+		if(names.remove(nameToRemove)){
+			System.out.println(nameToRemove+" removed from the set.");
+		}
+		else{
+			System.out.println(nameToRemove+" was not found in the set.");
+		}
+		System.out.println("After possible removal, set contains: "+names);
+		System.out.println("Clearing the set...");
+		names.clear();
+		System.out.println("After clearing, set is empty: "+names.isEmpty());
+		scanner.close();
+	}
+}
